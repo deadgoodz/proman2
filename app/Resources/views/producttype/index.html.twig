@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Producttypes list</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for productType in productTypes %}
+            <tr>
+                <td><a href="{{ path('producttype_show', { 'id': productType.id }) }}">{{ productType.id }}</a></td>
+                <td>{{ productType.name }}</td>
+                <td>
+
+                    <a href="{{ path('producttype_show', { 'id': productType.id }) }}"><i class="fa fa-eye"
+                                                                                          aria-hidden="true"></i></a>
+
+
+                    <a href="{{ path('producttype_edit', { 'id': productType.id }) }}"><i class="fa fa-pencil-square-o"
+                                                                                          aria-hidden="true"></i></a>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <div class="button_place">
+        <a class="btn btn-success" href="{{ path('producttype_new') }}">+add</a>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Producttypefields list</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Producttypeid</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for productTypeField in productTypeFields %}
+            <tr>
+                <td>
+                    <a href="{{ path('producttypefields_show', { 'id': productTypeField.id }) }}">{{ productTypeField.id }}</a>
+                </td>
+                <td>{{ productTypeField.productTypeId }}</td>
+                <td>{{ productTypeField.name }}</td>
+                <td>
+
+                    <a href="{{ path('producttypefields_show', { 'id': productTypeField.id }) }}"><i class="fa fa-eye"
+                                                                                                     aria-hidden="true"></i></a>
+
+                    <a href="{{ path('producttypefields_edit', { 'id': productTypeField.id }) }}"><i
+                                class="fa fa-pencil-square-o"
+                                aria-hidden="true"></i></a>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="button_place">
+        <a class="btn btn-success" href="{{ path('producttypefields_new') }}">Create a new productTypeField</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Producttypefield creation</h1>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <div class="button_place">
+        <input class="btn btn-success" type="submit" value="Create"/>
+        {{ form_end(form) }}
+
+
+                <a class="btn btn-danger" href="{{ path('producttypefields_index') }}">Back to the list</a>
+
+    </div>
+{% endblock %}

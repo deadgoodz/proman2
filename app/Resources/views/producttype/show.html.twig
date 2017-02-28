@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Producttype</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>
+
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>{{ productType.id }}</td>
+
+                <th>Name</th>
+                <td>{{ productType.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+<div class="button_place">
+            <a class="btn btn-success" href="{{ path('producttype_index') }}">Back to the list</a>
+
+            <a class="btn btn-warning" href="{{ path('producttype_edit', { 'id': productType.id }) }}">Edit</a>
+
+            {{ form_start(delete_form) }}
+                <input class="btn btn-danger" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+</div>
+{% endblock %}
