@@ -30,14 +30,11 @@ class ProductTypeFieldsType extends AbstractType
             EntityType::class,
             array(
                 'class' => 'AppBundle:ProductType',
-                'query_builder' => function (EntityRepository $er) {
-                    return $er->createQueryBuilder('u')
-                        ->orderBy('u.name', 'ASC');
-                },
                 'choice_label' => 'name',
-            ));
 
-        $builder->add('name');
+                ))->add('name');
+
+
     }
 
     /**

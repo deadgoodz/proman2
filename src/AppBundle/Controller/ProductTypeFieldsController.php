@@ -39,14 +39,18 @@ class ProductTypeFieldsController extends Controller
      */
     public function newAction(Request $request)
     {
+
         $productTypeField = new ProductTypeFields();
 
         $form = $this->createForm('AppBundle\Form\ProductTypeFieldsType', $productTypeField);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $productTypeField->setName($_POST['appbundle_producttypefields']['name']);
+            $productTypeField->setProductTypeId($_POST['appbundle_producttypefields']['productTypeId']);
             $em = $this->getDoctrine()->getManager();
             $em->persist($productTypeField);
+
             $em->flush($productTypeField);
 
             return $this->redirectToRoute('producttypefields_show', array('id' => $productTypeField->getId()));
